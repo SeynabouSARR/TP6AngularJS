@@ -7,19 +7,28 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
 </head>
-<body ng-app="pokedex">
+<body ng-app="pokedex" ng-controller="monController">
 
 	<div class="container">
 		<h1>Pokésir</h1>
 
 		<!-- Search -->
 		<div>
-            <input ng-model="maVariable"/>
+            <input ng-model="id"/>
         </div>
 
 		<!-- Pokémon information -->
 		<div>
             #{{maVariable}}
+        </div>
+
+
+        <div>
+            <ul>
+                <li ng-repeat="pokemon in pokemons">
+                    {{pokemon.name}}
+                </li>
+            </ul>
         </div>
 
 	</div>
