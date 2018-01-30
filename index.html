@@ -10,31 +10,26 @@
 <body ng-app="pokedex" ng-controller="monController">
 
 	<div class="container">
+
 		<h1>Pokésir</h1>
 
 		<!-- Search -->
-
-<<<<<<< HEAD
-		<br>
-
-
 		<div>
             <input ng-model="id"/></br>
-            <input ng-model="nom"/><select></select></br>
-                                {{id}}
-                                {{nom}}
-=======
-		<div>
-            <input ng-model="id"/>
+            <input ng-model="name"/>
+            <select ng-model="nom">
+                <option ng-repeat="pokemon in pokemons">
+                    {{pokemon.name}}
+                </option>
+            </select>
 
->>>>>>> 4bb1c344f167853714f920750a13b16e5d1fad7b
         </div>
 
 		<!-- Pokémon information -->
-		<div>
-            #{{id}}
-<<<<<<< HEAD
-=======
+		<div ng-app="myApp" ng-controller="namesCtrl">
+            <b>#{{id}}
+            {{pokemon}}
+            </b>
         </div>
 
 
@@ -44,11 +39,9 @@
                     {{pokemon.name}}
                 </li>
             </ul>
->>>>>>> 4bb1c344f167853714f920750a13b16e5d1fad7b
         </div>
 
 	</div>
-
     <!-- Dependencies -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
