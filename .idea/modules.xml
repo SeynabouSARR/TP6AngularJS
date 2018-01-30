@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../TP6AngularJS/.idea/teaching-jxs-tp5-master.iml" filepath="$PROJECT_DIR$/../TP6AngularJS/.idea/teaching-jxs-tp5-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TP6AngularJS.iml" filepath="$PROJECT_DIR$/.idea/TP6AngularJS.iml" />
     </modules>
   </component>
 </project>
