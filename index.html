@@ -5,7 +5,6 @@
     <title></title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-
 </head>
 <body ng-app="pokedex" ng-controller="monController">
 
@@ -16,26 +15,25 @@
 		<!-- Search -->
 		<div>
             <input ng-model="id"/></br>
-            <input ng-model="name"/>
-            <select ng-model="nom">
+            <input ng-model="name" ng-value="pokemon.name" />
+            <select ng-model="name">
                 <option ng-repeat="pokemon in pokemons">
                     {{pokemon.name}}
                 </option>
             </select>
+            <button>Get</button>
 
         </div>
-
 		<!-- Pokémon information -->
-		<div ng-app="myApp" ng-controller="namesCtrl">
-            <b>#{{id}}
-            {{pokemon}}
-            </b>
+		<div>
+            <p ng-repeat="pokemon in pokemons | filter:{id:id}">
+
+                <span ng-if="pokemon.id==id">#{{id}} {{pokemon.name}}</span>
+            </p>
         </div>
-
-
         <div>
             <ul>
-                <li ng-repeat="pokemon in pokemons">
+                <li ng-repeat="pokemon in pokemons ">
                     {{pokemon.name}}
                 </li>
             </ul>

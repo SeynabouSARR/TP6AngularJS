@@ -6,13 +6,13 @@ pokeApp.constant('POKEAPI', 'http://pokeapi.co');
 pokeApp.controller('monController',function ($scope) {
 
     $scope.pokemons = [
-        {name:"Scald",id:54},
-        {name:"Round",id:55},
-        {name:"Soak",id:56},
-        {name:"Synchronoise",id:57},
-        {name:"Telekinesis",id:58},
-        {name:"Psyshock",id:59},
-        {name:"Wonder rom",id:60}
+        {name:"Scald",id:'54'},
+        {name:"Round",id:'55'},
+        {name:"Soak",id:'56'},
+        {name:"Synchronoise",id:'57'},
+        {name:"Telekinesis",id:'58'},
+        {name:"Psyshock",id:'59'},
+        {name:"Wonder rom",id:'60'}
     ];
     
 });
