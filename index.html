@@ -16,19 +16,35 @@
 
 		<div>
             <input ng-model="id"/>
+            <br/>
+            <input value="{{choix}}">
+
+            <select ng-model="choix">
+                <option ng-repeat="pokemon in pokemons" value="{{pokemon.name}}">
+                    {{pokemon.name}}
+                </option>
+            </select>
+            <button ng-click="foo()">Get</button>
 
         </div>
 
+
+
 		<!-- Pokémon information -->
 		<div>
-            #{{id}}
+
+            <span ng-repeat="pokemon in pokemons | filter :{id:id}">
+
+                <span ng-if="pokemon.id == id">#{{id}} {{pokemon.name}}</span>
+
+            </span>
         </div>
 
 
         <div>
             <ul>
                 <li ng-repeat="pokemon in pokemons">
-                    {{pokemon.name}}
+                    {{pokemon.name}} ({{pokemon.id}})
                 </li>
             </ul>
         </div>
