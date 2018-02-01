@@ -14,6 +14,23 @@ pokeApp.controller('monController',function ($scope) {
         {name:"Psyshock",id:'59'},
         {name:"Wonder rom",id:'60'}
     ];
+
+    $scope.$watch('id',function(){
+        var trouve = false;
+        $scope.pokemons.forEach(function (pokemon) {
+            if(pokemon.id == $scope.id)
+            {
+                $scope.choix = pokemon.name ;
+                trouve = true;
+            }
+
+
+        })
+
+        });
+    $scope.foo=function () {
+        console.log("ok");
+    }
     
 });
 pokeApp.config(['$resourceProvider', function($resourceProvider) {
