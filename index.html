@@ -23,12 +23,9 @@
                     {{pokemon.name}}
                 </option>
             </select>
-            <button ng-click="foo()">Get</button>
+            <button ng-click="log()">Get</button>
 
         </div>
-
-
-
 		<!-- Pokémon information -->
 		<div>
 
@@ -38,31 +35,8 @@
 
             </span>
         </div>
-
-
-            <input ng-model="id"/></br>
-            <input ng-model="name" ng-value="nom" />
-            <select ng-model="nom">
-                <option ng-repeat="pokemon in pokemons">
-                    {{pokemon.name}}
-                </option>
-            </select>
-            <button>Get</button>
-
-        </div>
-		<!-- Pokémon information -->
-		<div>
-            <p ng-repeat="pokemon in pokemons | filter:{id:id}">
-
-                <span ng-if="pokemon.id==id">#{{id}} {{pokemon.name}}</span>
-            </p>
-        </div>
         <div>
             <ul>
-
-                <li ng-repeat="pokemon in pokemons">
-                    {{pokemon.name}} ({{pokemon.id}})
-
                 <li ng-repeat="pokemon in pokemons ">
                     {{pokemon.name}}
                 </li>

@@ -3,7 +3,7 @@ var pokeApp = angular.module('pokedex', ['ngResource']);
 // With this you can inject POKEAPI url wherever you want
 pokeApp.constant('POKEAPI', 'http://pokeapi.co');
 
-pokeApp.controller('monController',function ($scope) {
+pokeApp.controller('monController',function ($scope,$log,$http) {
 
     $scope.pokemons = [
         {name:"Scald",id:'54'},
@@ -28,11 +28,29 @@ pokeApp.controller('monController',function ($scope) {
         })
 
         });
-    $scope.foo=function () {
-        console.log("ok");
-    }
-    
+    $scope.log=function () {
+       $http.get("https://pokeapi.co/api/v1/pokedex/").then(function (response) {
+           console.log(response.data)
+           $scope.content=response.data;
+       })  }
+
+
 });
 pokeApp.config(['$resourceProvider', function($resourceProvider) {
     $resourceProvider.defaults.stripTrailingSlashes = false;
+ /*   var Pokemon = $resource("http://pokeapi.co/api/v1/type/:id/",
+        {userId:123, nameId:'@id'}, {
+            charge: {method:'POST', params:{charge:true}}
+        });
+    var pokemons = Pokemon.query(function() {
+        var pokemon = pokemons[0];
+        expect(pokemon instanceof Pokemon).toEqual(true);
+        pokemon.name = "J";
+
+        pokemon.$save();
+
+        pokemon.$charge({amount:9.99});
+
+    });*/
+
 }]);
