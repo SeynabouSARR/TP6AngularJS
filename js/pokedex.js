@@ -16,7 +16,6 @@ pokeApp.controller('monController',function ($scope) {
     ];
     
 });
-
 pokeApp.config(['$resourceProvider', function($resourceProvider) {
     $resourceProvider.defaults.stripTrailingSlashes = false;
 }]);
