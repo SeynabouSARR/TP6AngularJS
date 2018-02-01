@@ -5,16 +5,16 @@
     <title></title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-
 </head>
 <body ng-app="pokedex" ng-controller="monController">
 
 	<div class="container">
+
 		<h1>Pokésir</h1>
 
 		<!-- Search -->
-
 		<div>
+<<<<<<< HEAD
             <input ng-model="id"/>
             <br/>
             <input value="{{choix}}">
@@ -40,17 +40,38 @@
             </span>
         </div>
 
+=======
+            <input ng-model="id"/></br>
+            <input ng-model="name" ng-value="pokemon.name" />
+            <select ng-model="name">
+                <option ng-repeat="pokemon in pokemons">
+                    {{pokemon.name}}
+                </option>
+            </select>
+            <button>Get</button>
 
+        </div>
+		<!-- Pokémon information -->
+		<div>
+            <p ng-repeat="pokemon in pokemons | filter:{id:id}">
+>>>>>>> 098153cdd37a826fd3a99c216ef7f4fc0aab41f8
+
+                <span ng-if="pokemon.id==id">#{{id}} {{pokemon.name}}</span>
+            </p>
+        </div>
         <div>
             <ul>
+<<<<<<< HEAD
                 <li ng-repeat="pokemon in pokemons">
                     {{pokemon.name}} ({{pokemon.id}})
+=======
+                <li ng-repeat="pokemon in pokemons ">
+                    {{pokemon.name}}
+>>>>>>> 098153cdd37a826fd3a99c216ef7f4fc0aab41f8
                 </li>
             </ul>
         </div>
-
 	</div>
-
     <!-- Dependencies -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
