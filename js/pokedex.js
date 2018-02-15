@@ -28,6 +28,19 @@ pokeApp.controller('monController',['$scope','$log','$http','pokeS',function ($s
         })
 
     });
+
+    $scope.$watch('choix', function () {
+        var link = $scope.choix+"";
+        var link_tab = link.split('/');
+        var id = link_tab[link_tab.length - 2];
+
+        pokeS.get({id:id}).$promise.then(function (value) {
+           $scope.pokemonDetails = value;
+           console.log(value.moves);
+        });
+    });
+
+
     $scope.log = function () {
         $log.log($scope.choix);
     };

@@ -19,7 +19,7 @@
             <input value="{{choix}}">
 
             <select ng-model="choix">
-                <option ng-repeat="pokemon in pokemons" value="{{pokemon.name}}">
+                <option ng-repeat="pokemon in pokemons" value="{{pokemon.url}}">
                     {{pokemon.name}}
                 </option>
             </select>
@@ -32,7 +32,13 @@
             <div>
                 <span>ID : {{pokemonDetails.id}}</span><br/>
                 <span>Name : {{pokemonDetails.name}}</span><br/>
-                <span>Attaques : {{pokemonDetails.moves}}</span>
+                <span>Attaques : <br/>
+                    <select multiple >
+                        <option ng-repeat="moves in pokemonDetails.moves">
+                            {{moves.move.name}}
+                        </option>
+                    </select>
+                </span>
                 
             </div>
         </div>
