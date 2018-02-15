@@ -32,12 +32,12 @@ pokeApp.controller('monController',['$scope','$log','$http','pokeS',function ($s
         $log.log($scope.choix);
     };
 
-    $scope.log = function () {
-        console.log(pokeS);
+    $scope.loadPokemons = function () {
+        console.log(pokeS.listAll().$promise);
         pokeS.listAll().$promise.then(function (data) {
             console.log(data);
             console.log(data);
-            $scope.content = data.results;
+            $scope.pokemons = data.results;
         });
     }
 

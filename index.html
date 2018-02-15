@@ -23,11 +23,20 @@
                     {{pokemon.name}}
                 </option>
             </select>
-            <button ng-click="log()">Get</button>
+            <button ng-click="loadPokemons()">Load all Pokemons</button>
 
         </div>
-		<!-- Pokémon information -->
-		<div>
+        <!-- Pokémon information -->
+        <div>
+            ----------Pokemon informations-----------
+            <div>
+                <span>ID : {{pokemonDetails.id}}</span><br/>
+                <span>Name : {{pokemonDetails.name}}</span><br/>
+                <span>Attaques : {{pokemonDetails.moves}}</span>
+                
+            </div>
+        </div>
+		<!--<div>
 
             <span ng-repeat="pokemon in pokemons | filter :{id:id}">
 
@@ -41,7 +50,7 @@
                     {{pokemon.name}}
                 </li>
             </ul>
-        </div>
+        </div>-->
 	</div>
     <!-- Dependencies -->
     <script src="js/jquery.min.js"></script>
