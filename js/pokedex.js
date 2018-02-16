@@ -3,28 +3,54 @@ var pokeApp = angular.module('pokedex', ['ngResource']);
 // With this you can inject POKEAPI url wherever you want
 pokeApp.constant('POKEAPI', 'http://pokeapi.co');
 
+pokeApp.service("myService" ,function($resource, pokeS,$rootScope){
+
+    var pokemons = [];
+    var pokemon;
+
+    this.getPokemons = function () {
+        return this.pokemons;
+    }.bind(this);
+    
+    this.getPokemon = function () {
+        return pokemon;
+    }.bind(this);
+
+    this.setPokemons = function(value) {
+        this.pokemons = value;
+
+    }.bind(this);
+
+    this.setPokemonSelected = function(value) {
+        this.pokemons = value;
+        $rootScope.setPokemonSelected(value);
+        console.log(value);
+
+    }.bind(this);
+
+
+});
+
+
 pokeApp.controller("myAfficheurCtrl",function ($scope,$rootScope) {
 
     $scope.pokemonDetails = [];
- 
+
      $rootScope.setPokemonSelected = function (value) {
          $scope.pokemonDetails=value;
      }.bind(this);
- 
- 
+
+
  });
 
-pokeApp.controller('monController',function ($scope, $rootScope, $log , $http, pokeS) {
+pokeApp.controller('monController',function ($scope, $rootScope, $log , $http, pokeS,myService) {
 
-    $scope.pokemons = [
-        {name: "Scald", id: '54'},
-        {name: "Round", id: '55'},
-        {name: "Soak", id: '56'},
-        {name: "Synchronoise", id: '57'},
-        {name: "Telekinesis", id: '58'},
-        {name: "Psyshock", id: '59'},
-        {name: "Wonder rom", id: '60'}
-    ];
+    $scope.pokemons=[];
+    pokeS.listAll().$promise.then(function (value) {
+        myService.setPokemons(value.results);
+        $scope.pokemons = value.results;
+
+    });
 
     $scope.$watch('id', function () {
         var trouve = false;
@@ -46,7 +72,7 @@ pokeApp.controller('monController',function ($scope, $rootScope, $log , $http, p
         var id = link_tab[link_tab.length - 2];
 
         pokeS.get({id:id}).$promise.then(function (value) {
-           $rootScope.setPokemonSelected(value);
+           myService.setPokemonSelected(value);
         });
     });
 
