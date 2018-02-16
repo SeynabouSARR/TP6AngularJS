@@ -4,68 +4,22 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
 </head>
+
 <body ng-app="pokedex" ng-controller="monController">
+<pokedex>ok</pokedex>
 
-	<div class="container">
 
-		<h1>Pokésir</h1>
+<!-- Dependencies -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-resource.min.js"></script>
 
-		<!-- Search -->
-		<div>
-            <input ng-model="id"/>
-            <br/>
-            <input value="{{choix}}">
-
-            <select ng-model="choix">
-                <option ng-repeat="pokemon in pokemons" value="{{pokemon.url}}">
-                    {{pokemon.name}}
-                </option>
-            </select>
-            <button ng-click="loadPokemons()">Load all Pokemons</button>
-
-        </div>
-        <!-- Pokémon information -->
-        <div>
-            ----------Pokemon informations-----------
-            <div ng-controller="myAfficheurCtrl">
-                <span>ID : {{pokemonDetails.id}}</span><br/>
-                <span>Name : {{pokemonDetails.name}}</span><br/>
-                <span>Attaques : <br/>
-                    <select multiple >
-                        <option ng-repeat="moves in pokemonDetails.moves">
-                            {{moves.move.name}}
-                        </option>
-                    </select>
-                </span>
-                
-            </div>
-        </div>
-		<!--<div>
-
-            <span ng-repeat="pokemon in pokemons | filter :{id:id}">
-
-                <span ng-if="pokemon.id == id">#{{id}} {{pokemon.name}}</span>
-
-            </span>
-        </div>
-        <div>
-            <ul>
-                <li ng-repeat="pokemon in pokemons ">
-                    {{pokemon.name}}
-                </li>
-            </ul>
-        </div>-->
-	</div>
-    <!-- Dependencies -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-resource.min.js"></script>
-
-    <!-- Pokedex app -->
-    <script src="js/pokedex.js"></script>
+<!-- Pokedex app -->
+<script src="js/function.js"></script>
+<script src="js/pokedex.js"></script>
 
 </body>
 </html>
