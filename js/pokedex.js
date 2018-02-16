@@ -3,7 +3,18 @@ var pokeApp = angular.module('pokedex', ['ngResource']);
 // With this you can inject POKEAPI url wherever you want
 pokeApp.constant('POKEAPI', 'http://pokeapi.co');
 
-pokeApp.controller('monController',['$scope','$log','$http','pokeS',function ($scope,$log,$http,pokeS) {
+pokeApp.controller("myAfficheurCtrl",function ($scope,$rootScope) {
+
+    $scope.pokemonDetails = [];
+ 
+     $rootScope.setPokemonSelected = function (value) {
+         $scope.pokemonDetails=value;
+     }.bind(this);
+ 
+ 
+ });
+
+pokeApp.controller('monController',function ($scope, $rootScope, $log , $http, pokeS) {
 
     $scope.pokemons = [
         {name: "Scald", id: '54'},
@@ -35,8 +46,7 @@ pokeApp.controller('monController',['$scope','$log','$http','pokeS',function ($s
         var id = link_tab[link_tab.length - 2];
 
         pokeS.get({id:id}).$promise.then(function (value) {
-           $scope.pokemonDetails = value;
-           console.log(value.moves);
+           $rootScope.setPokemonSelected(value);
         });
     });
 
@@ -54,11 +64,12 @@ pokeApp.controller('monController',['$scope','$log','$http','pokeS',function ($s
         });
     }
 
-        /* $http.get("https://pokeapi.co/api/v1/pokedex/").then(function (response) {
-             console.log(response.data.objects[0].pokemon)
-             $scope.content=response.data;
-         }) */
-    }]);
+        
+    });
+
+
+
+    
 
 pokeApp.factory('pokeS',function($resource){
     return $resource('https://pokeapi.co/api/v2/pokemon/:id', {id:"@id"},
@@ -74,21 +85,6 @@ pokeApp.factory('pokeS',function($resource){
         );
 
 });
-    /*pokeApp.config(['$resourceProvider', function($resourceProvider) {
-       $resourceProvider.defaults.stripTrailingSlashes = false;
-      var Pokemon = $resource("http://pokeapi.co/api/v1/type/:id/",
-           {userId:123, nameId:'@id'}, {
-               charge: {method:'POST', params:{charge:true}}
-           });
-       var pokemons = Pokemon.query(function() {
-           var pokemon = pokemons[0];
-           expect(pokemon instanceof Pokemon).toEqual(true);
-           pokemon.name = "J";
-
-           pokemon.$save();
-
-           pokemon.$charge({amount:9.99});
-
-       });*/
+    
 
 
