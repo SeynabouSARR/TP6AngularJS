@@ -46,9 +46,7 @@
             <div class="col-md-5">
                 <p>Name : {{pokemonDetails.name}}</p>
                 <p>ID : {{pokemonDetails.id}}</p>
-
-            </div>
-            <div class="col-md-5">
+            </div><div class="col-md-5">
                 <p>Attaques :
                     <select name="liste_attaques" multiple class="form-control">
                         <option ng-repeat="attaques in pokemonDetails.moves">
@@ -57,6 +55,7 @@
                     </select>
                 </p>
             </div>
+
             <div class="col-md-2">
                 <p>
                     <img width="150"  src="{{pokemonDetails.sprites.front_default}}" title="image pokemon" alt="" class="img-thumbnail" />
@@ -64,9 +63,9 @@
                 </p>
             </div>
 
+
+
         </div>
-
-
 
 
     </div>
@@ -74,6 +73,7 @@
     <hr/>
 
 </div>
+
 
 </body>
 </html>
