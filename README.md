@@ -17,7 +17,7 @@ Ce TP a pour objectif de nous initier en AngularJS et nous faire comprendre les 
 
 <h2>Technologies utilisées</h2>
     
-    - MVVM (Model View View Model)
+    - MVVVM (Model View View Model)
 
 <h2>Deploiement</h2>
 
@@ -25,7 +25,7 @@ Ce TP a pour objectif de nous initier en AngularJS et nous faire comprendre les 
     Explorer le dossier du projet.
     ##############################################
     Ouvrir le projet sur un editeur.
-    Lancer le fichier canvas.html avec votre navigateur préferé
+    Lancer le fichier index.html avec votre navigateur préferé
 
 <h2>Auteurs<h2>
 
@@ -47,6 +47,6 @@ Nous avons fait les questions à la suite des autres en modifiant quelque fois l
     </li>
 </ul>
 
-<b>NB : </b> Le service charge les donnnées de l'API en quelques secondes avant qu'il ne s'affiche dans le, donc auz moment où le du changement
+<b>NB : </b> Le service charge les données de l'API en quelques secondes avant qu'il ne s'affiche dans la page HTML
 
 
